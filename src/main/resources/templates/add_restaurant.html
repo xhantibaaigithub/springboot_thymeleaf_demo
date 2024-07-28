@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Restaurant</title>
+</head>
+<body>
+    <form method="post" action="/restaurants/add_new" th:object="${newRestaurant}">
+        <input type="text" name="title" placeholder="Restaurant name">
+        <input type="number" name="capacity" placeholder="Total capacity">
+        <input type="text" name="cuisine" placeholder="Cuisine">
+        <input type="text" name="music" placeholder="Music genre">
+        <input type="text" name="contacts" placeholder="Contact number">
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html>

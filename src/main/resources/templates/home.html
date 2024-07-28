@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grab-a-Grub-Bud</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+   <div th:insert="~{components/navbar::navbar}"></div>
+   <section class="welcome-container">
+       <p>Hey there, are you feeling peckish? Take a look at our list of restaurants, invite a buddy and get some grub to satisfy your appetite.</p>
+       <form class="filter-search" method="get" action="/restaurants">
+        <p>Intimate setting?</p>
+        <label class="switch">
+           <input type="checkbox" id="toggleSwitch" name="applyfilter">
+           <span class="slider"></span>
+       </label>
+        <button type="submit">
+           Display restaurants
+        </button>
+       </form>
+   </section>
+   
+    <div th:insert="~{components/footer::footer}"></div>
+</body>
+</html>

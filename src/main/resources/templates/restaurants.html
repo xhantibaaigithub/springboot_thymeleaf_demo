@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grab-a-Grub-Bud</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <section>
+        <div th:insert="~{components/navbar::navbar}"></div>
+        <h1>Grab-a-Grub-Bud</h1>
+        <p>Here's a list of restaurants to enjoy your grub with a bud </p>
+    </section>
+    
+<section>
+    <div class="grub-buttons-container">
+        <a  href="/restaurants/add">Add New Restaurant</a>
+    </div>
+    
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Capacity</th>
+            <th>Cuisine</th>
+            <th>Music</th>
+            <th>Contact</th>
+            <th>Actions</th>
+        </tr>
+    <th:block th:each="restaurant : ${restaurantsList}">
+        <tr>
+            <td th:text="${restaurant.title}"></td>
+            <td th:text="${restaurant.capacity}"></td>
+            <td th:text="${restaurant.cuisine}"></td>
+            <td th:text="${restaurant.music}"></td>
+            <td th:text="${restaurant.contacts}"></td>
+            <td><button><a th:href="@{|/restaurants/edit/${restaurant.id}|}">Edit</a></button></td>
+            <td><button><a th:href="@{|/restaurants/delete/${restaurant.id}|}">Delete</a></button></td>
+        </tr>
+    </table>
+    </th:block>
+</section>
+   
+
+    <div th:insert="~{components/footer::footer}"></div>
+
+
+</body>
+</html>

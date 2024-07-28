@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Restaurant</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div th:insert="~{components/navbar::navbar}"></div>
+    <h1>Edit Restaurant</h1>
+
+    <p>Please apply the required changes in the fields below and click Save</p>
+    <form method="post" action="/restaurants/edit" th:object="${existingRestaurant}">
+        <input type="hidden" name="id" th:value="${existingRestaurant.id}">
+        <input type="text" name="title" placeholder="Restaurant name" th:value="${existingRestaurant.title}">
+        <input type="number" name="capacity" placeholder="Total capacity" th:value="${existingRestaurant.capacity}">
+        <input type="text" name="cuisine" placeholder="Cuisine" th:value="${existingRestaurant.cuisine}">
+        <input type="text" name="music" placeholder="Music genre" th:value="${existingRestaurant.music}">
+        <input type="text" name="contacts" placeholder="Contact number" th:value="${existingRestaurant.contacts}">
+        <input type="submit" value="Save">   
+     </form>
+     <div th:insert="~{components/footer::footer}"></div>
+    
+</body>
+</html>

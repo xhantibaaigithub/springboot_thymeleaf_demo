@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div th:insert="~{components/navbar::navbar}"></div>
+
+    <p>Are you sure you would like to delete this restaurant?</p>
+    <form method="post" action="/restaurants/delete/confirmed" th:object="${existingRestaurant}">
+        <input type="hidden" name="id" th:value="${existingRestaurant.id}">
+        <input type="text" name="title" placeholder="Restaurant name" th:value="${existingRestaurant.title}" disabled>
+        <input type="number" name="capacity" placeholder="Total capacity" th:value="${existingRestaurant.capacity}" disabled>
+        <input type="text" name="cuisine" placeholder="Cuisine" th:value="${existingRestaurant.cuisine}" disabled>
+        <input type="text" name="music" placeholder="Music genre" th:value="${existingRestaurant.music}" disabled>
+        <input type="text" name="contacts" placeholder="Contact number" th:value="${existingRestaurant.contacts}" disabled>
+        <input type="submit" value="Delete">   
+     </form>
+    
+     <div th:insert="~{components/footer::footer}"></div>
+</body>
+</html>
